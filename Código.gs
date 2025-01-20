@@ -46,3 +46,7 @@ function myFunction() {
     var warrantyDays = 0;
     var contractType, feeDec, calcResultA, calcResultB, calcResultC, calcResultImpA, calcResultImpB, calcResultImpC, calcResultText, calcResultImpText;
     var balaPrata, comercialName, typeSale, typeProposal, segment, originContact, modalityA, potentialA, modalityB, potentialB, modalityC, potentialC;
+
+    Logger.log(ultFila);
+    var fila = ultFila;
+
