@@ -4,7 +4,7 @@ function myFunction() {
     var sRespostas = ss.getSheets()[0];
     var ultFila = sRespostas.getLastRow();
    
-    var ssBDtxt = SpreadsheetApp.openById('1jfvxI3_IL-AgylBtn7Erzts6mOJyyE0FkR1glODas5k'); // spreadsheet textos base propuestas
+    var ssBDtxt = SpreadsheetApp.openById('1jfvxI3_IL-AgylBtn7Erzts6mOJyyE0FkR1glODas5k'); // spreadsheet textos base das propostas
     var bdTxt = ssBDtxt.getSheetByName('Recruiting.v2');
 
     //spreadsheet Planilha de Controle Comercial
@@ -28,18 +28,19 @@ function myFunction() {
     var retainerFee = retainerFeeB = retainerFeeC = 30;
     var intermediateFee = intermediateFeeB = intermediateFeeC = 30;
     var completionFee = completionFeeB = completionFeeC = 40; //porcentaje
-    var cancellationFeePrev = cancellationFeePrevB = cancellationFeePrevC = 50; //porcentaje
-    var cancellationFeeAfter = cancellationFeeAfterB = cancellationFeeAfterC = 100; //porcentaje
+    var cancellationFeePrev = cancellationFeePrevB = cancellationFeePrevC = 50; //porcentagem
+    var cancellationFeeAfter = cancellationFeeAfterB = cancellationFeeAfterC = 100; //porcentagem
     var scalability1 = scalability1B = scalability1C = 7;
-    var scalabilityDiscount1 = scalabilityDiscount1B = scalabilityDiscount1C = 10; // resta un % de descuento
+    var scalabilityDiscount1 = scalabilityDiscount1B = scalabilityDiscount1C = 10; // resta um % de desconto
     var scalability2 = scalability2B = scalability2C = 15;
-    var scalabilityDiscount2 = scalabilityDiscount2B = scalabilityDiscount2C = 15; // resta un % de descuento
+    var scalabilityDiscount2 = scalabilityDiscount2B = scalabilityDiscount2C = 15; // resta um % de desconto
     var dueDays = dueDaysB = dueDaysC = 15;
     var timingResponse = timingResponseB = timingResponseC = 24;
     var timingExecute = timingExecuteB = timingExecuteC = 48;
     var exclusivityDays = exclusivityDaysB = exclusivityDaysC = 21;
     var buCode, proposalCode;
-    var dbFolder = "19JlJBfL7A1BeiVXk-Xbb2hfU_HJ1CGJ-"; // en esta carpeta se almacenan las propuestas generadas
+    var dbFolder = "19JlJBfL7A1BeiVXk-Xbb2hfU_HJ1CGJ-"; // propostas geradas são armazenadas nesta pasta.
+
     var referralFeeA = referralFeeB = referralFeeC = 0;
     var alertDefault = 0;
     var positionSalaryA = positionSalaryB = positionSalaryC = 0;
@@ -50,6 +51,6 @@ function myFunction() {
     Logger.log(ultFila);
     var fila = ultFila;
 
-    var ssDb = SpreadsheetApp.openById('1Zuyth2djZC2WcDljaZBL_Rms0k2GpAc9wGzgUHsV0so'); // spreadsheet BD propuestas generadas
+    var ssDb = SpreadsheetApp.openById('1Zuyth2djZC2WcDljaZBL_Rms0k2GpAc9wGzgUHsV0so'); // spreadsheet BD propostas geradas
     var rowBd = ssDb.getSheetByName('validation').getRange("N2").getValue();
     var sBd = ssDb.getSheetByName('Recruiting');
