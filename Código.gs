@@ -27,7 +27,7 @@ function myFunction() {
     var fee = feeB = feeC = 16;
     var retainerFee = retainerFeeB = retainerFeeC = 30;
     var intermediateFee = intermediateFeeB = intermediateFeeC = 30;
-    var completionFee = completionFeeB = completionFeeC = 40; //porcentaje
+    var completionFee = completionFeeB = completionFeeC = 40; //porcentagem
     var cancellationFeePrev = cancellationFeePrevB = cancellationFeePrevC = 50; //porcentagem
     var cancellationFeeAfter = cancellationFeeAfterB = cancellationFeeAfterC = 100; //porcentagem
     var scalability1 = scalability1B = scalability1C = 7;
