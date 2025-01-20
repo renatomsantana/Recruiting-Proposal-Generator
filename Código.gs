@@ -50,3 +50,6 @@ function myFunction() {
     Logger.log(ultFila);
     var fila = ultFila;
 
+    var ssDb = SpreadsheetApp.openById('1Zuyth2djZC2WcDljaZBL_Rms0k2GpAc9wGzgUHsV0so'); // spreadsheet BD propuestas generadas
+    var rowBd = ssDb.getSheetByName('validation').getRange("N2").getValue();
+    var sBd = ssDb.getSheetByName('Recruiting');
