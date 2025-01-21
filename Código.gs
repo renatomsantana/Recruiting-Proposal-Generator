@@ -54,3 +54,9 @@ function myFunction() {
     var ssDb = SpreadsheetApp.openById('1Zuyth2djZC2WcDljaZBL_Rms0k2GpAc9wGzgUHsV0so'); // spreadsheet BD propostas geradas
     var rowBd = ssDb.getSheetByName('validation').getRange("N2").getValue();
     var sBd = ssDb.getSheetByName('Recruiting');
+    
+    //copiar os dados carregados do formulário
+    /* 1. Basis Data */
+    var time = sRespostas.getRange(fila,1,1,1).getValue();
+    var comercialEmail = sRespostas.getRange(fila,2,1,1).getValue();
+    var bu = sRespostas.getRange(fila,3,1,1).getValue();
