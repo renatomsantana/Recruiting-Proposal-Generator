@@ -60,3 +60,7 @@ function myFunction() {
     var time = sRespostas.getRange(fila,1,1,1).getValue();
     var comercialEmail = sRespostas.getRange(fila,2,1,1).getValue();
     var bu = sRespostas.getRange(fila,3,1,1).getValue();
+    var lenguage = sRespostas.getRange(fila,4,1,1).getValue();
+    var country = sRespostas.getRange(fila,5,1,1).getValue();
+    var compFantasyName = sRespostas.getRange(fila,6,1,1).getValue();
+    var compWeb = sRespostas.getRange(fila,7,1,1).getValue();
