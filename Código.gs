@@ -65,3 +65,5 @@ function myFunction() {
     var compFantasyName = sRespostas.getRange(fila,6,1,1).getValue();
     var compWeb = sRespostas.getRange(fila,7,1,1).getValue();
     var compBusinessName = sRespostas.getRange(fila,8,1,1).getValue();
+    var compId = sRespostas.getRange(fila,9,1,1).getValue();
+    var compAddress = sRespostas.getRange(fila,10,1,1).getValue();
