@@ -64,3 +64,4 @@ function myFunction() {
     var country = sRespostas.getRange(fila,5,1,1).getValue();
     var compFantasyName = sRespostas.getRange(fila,6,1,1).getValue();
     var compWeb = sRespostas.getRange(fila,7,1,1).getValue();
+    var compBusinessName = sRespostas.getRange(fila,8,1,1).getValue();
