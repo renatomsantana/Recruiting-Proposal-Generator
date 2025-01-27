@@ -107,3 +107,6 @@ function myFunction() {
     if(sRespostas.getRange(fila,25,1,1).getValue().toString() != ""){
     var cancellationFeePrev = sRespostas.getRange(fila,25,1,1).getValue();
     }
+    if(sRespostas.getRange(fila,26,1,1).getValue().toString() != ""){
+    var cancellationFeeAfter = sRespostas.getRange(fila,26,1,1).getValue();
+    }
