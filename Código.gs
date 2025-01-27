@@ -89,3 +89,7 @@ function myFunction() {
     if(sRespostas.getRange(fila,20,1,1).getValue().toString() != ""){
     var covered = sRespostas.getRange(fila,20,1,1).getValue();
     }
+
+    if(sRespostas.getRange(fila,21,1,1).getValue().toString() != ""){
+    fee = sRespostas.getRange(fila,21,1,1).getValue();
+    }
