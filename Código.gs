@@ -72,3 +72,7 @@ function myFunction() {
     var contactRole = sRespostas.getRange(fila,12,1,1).getValue();
     var contactEmail = sRespostas.getRange(fila,13,1,1).getValue();
     var contactPhone = sRespostas.getRange(fila,14,1,1).getValue();
+    /* 3.a. Fee Data */
+    var propTitleShowA = sRespostas.getRange(fila,15,1,1).getValue();
+    proposalSubtitleA = sRespostas.getRange(fila,16,1,1).getValue();
+    var coin = sRespostas.getRange(fila,17,1,1).getValue();
