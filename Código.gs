@@ -76,3 +76,10 @@ function myFunction() {
     var propTitleShowA = sRespostas.getRange(fila,15,1,1).getValue();
     proposalSubtitleA = sRespostas.getRange(fila,16,1,1).getValue();
     var coin = sRespostas.getRange(fila,17,1,1).getValue();
+
+    if(sRespostas.getRange(fila,18,1,1).getValue().toString() != "" ){
+    var flatFeeMonth = sRespostas.getRange(fila,18,1,1).getValue();
+    }
+    if(sRespostas.getRange(fila,18,1,1).getValue().toString() != "" ){
+    var flatFeeMonth = sRespostas.getRange(fila,18,1,1).getValue();
+    }
