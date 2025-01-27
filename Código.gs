@@ -97,3 +97,6 @@ function myFunction() {
     if(sRespostas.getRange(fila,22,1,1).getValue().toString() != ""){
     var retainerFee = sRespostas.getRange(fila,22,1,1).getValue();
     }
+    if(sRespostas.getRange(fila,23,1,1).getValue().toString() != ""){
+    var intermediateFee = sRespostas.getRange(fila,23,1,1).getValue();
+    }
