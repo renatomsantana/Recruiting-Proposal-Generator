@@ -100,3 +100,6 @@ function myFunction() {
     if(sRespostas.getRange(fila,23,1,1).getValue().toString() != ""){
     var intermediateFee = sRespostas.getRange(fila,23,1,1).getValue();
     }
+    if(sRespostas.getRange(fila,24,1,1).getValue().toString() != ""){
+    var completionFee = sRespostas.getRange(fila,24,1,1).getValue();
+    }
