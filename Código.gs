@@ -86,3 +86,6 @@ function myFunction() {
     if(sRespostas.getRange(fila,19,1,1).getValue().toString() != ""){
     var flatFeePosition = sRespostas.getRange(fila,19,1,1).getValue();
     }
+    if(sRespostas.getRange(fila,20,1,1).getValue().toString() != ""){
+    var covered = sRespostas.getRange(fila,20,1,1).getValue();
+    }
