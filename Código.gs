@@ -67,3 +67,8 @@ function myFunction() {
     var compBusinessName = sRespostas.getRange(fila,8,1,1).getValue();
     var compId = sRespostas.getRange(fila,9,1,1).getValue();
     var compAddress = sRespostas.getRange(fila,10,1,1).getValue();
+    /* 2. Contact Data */
+    var contactPerson = sRespostas.getRange(fila,11,1,1).getValue();
+    var contactRole = sRespostas.getRange(fila,12,1,1).getValue();
+    var contactEmail = sRespostas.getRange(fila,13,1,1).getValue();
+    var contactPhone = sRespostas.getRange(fila,14,1,1).getValue();
