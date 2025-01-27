@@ -103,3 +103,7 @@ function myFunction() {
     if(sRespostas.getRange(fila,24,1,1).getValue().toString() != ""){
     var completionFee = sRespostas.getRange(fila,24,1,1).getValue();
     }
+    /* 4.a. Disclaimer Data */
+    if(sRespostas.getRange(fila,25,1,1).getValue().toString() != ""){
+    var cancellationFeePrev = sRespostas.getRange(fila,25,1,1).getValue();
+    }
