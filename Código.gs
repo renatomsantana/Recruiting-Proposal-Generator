@@ -83,3 +83,6 @@ function myFunction() {
     if(sRespostas.getRange(fila,18,1,1).getValue().toString() != "" ){
     var flatFeeMonth = sRespostas.getRange(fila,18,1,1).getValue();
     }
+    if(sRespostas.getRange(fila,19,1,1).getValue().toString() != ""){
+    var flatFeePosition = sRespostas.getRange(fila,19,1,1).getValue();
+    }
