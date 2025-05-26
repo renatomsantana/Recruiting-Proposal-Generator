@@ -997,7 +997,7 @@
              shape.getText().replaceAllText('{{cancellationDescription}}',bdTxt.getRange(62,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{recommendation}}',bdTxt.getRange(63,colLang,1,1).getValue());
 
-             //if segun exclusivityDays
+             //Se seguem exclusivityDays
              if(exclusivityDays.toString() == "0"){
                shape.getText().replaceAllText('{{recommendationDescription}}',bdTxt.getRange(106,colLang,1,1).getValue());
              }
@@ -1149,7 +1149,7 @@
              shape.getText().replaceAllText('{{address}}',bdTxt.getRange(87,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{contractorData}}',bdTxt.getRange(89,colLang,1,1).getValue());
 
-             //sigo completando el doc con los datos de la propuesta
+             //Completo a propost seguindo os dados da planilha
              //page1
              shape.getText().replaceAllText('{{proposalcode}}',proposalCode);
              shape.getText().replaceAllText('{{compFantasyName}}',compFantasyName);
@@ -1179,7 +1179,7 @@
           });
         })
 
-            // Elimino hoja que no corresponda firma Grow
+        
               if (country == 'Argentina' || country == 'Chile') {
               if (slidesss[9]) {  // Verifica se o índice 9 existe
                slidesss[9].remove();
@@ -1194,13 +1194,13 @@
         //vuelvo a abrir slide
         slidesss = slides.getSlides();
 
-        /* +++ forEach para el reemplazar datos segun proyectos +++ */
+        /* +++ forEach para substituir os dados segundo ao projeto +++ */
         slidesss.forEach(function(slide,index){
         var shapes = (slide.getShapes());
 
           if(index==3 || index==4) 
           {
-            //calculo axiliar
+            //calculo auxiliar
             feeDec = fee/100;
             calcResultA = calcResultA * feeDec;
             calcResultImpA = calcResultA / 0.8367;
@@ -1240,7 +1240,7 @@
 
           if((index==5 || index==6) && qtyJob>1)
           {
-            //calculo axiliar
+            //calculo auxiliar
             feeDec = feeB/100;
             calcResultB = calcResultB * feeDec;
             calcResultImpB = calcResultB / 0.8367;
@@ -1280,12 +1280,12 @@
 
           if((index==7 || index==8) && qtyJob>2)
           {
-            //calculo axiliar
+            //calculo auxiliar
             feeDec = feeC/100;
             calcResultC = calcResultC * feeDec;
             calcResultImpC = calcResultC / 0.8367;
             calcResultImpC = calcResultImpC.toFixed(2);
-            //fin calculo
+            //término do calculo
 
             shapes.forEach(function(shape){
               if(shape.getShapeType() == 'TEXT_BOX'){
@@ -1318,9 +1318,9 @@
             })
           }
         })
-        /* +++ fin forEach para el reemplazar datos segun proyectos +++ */
+        /* +++ Término do forEach para substituir os dados segundo o projeto +++ */
 
-       // Eliminar páginas del slide si no se usan
+       // Eliminar páginas do slide se não irá ser usado
               if (qtyJob < 3) {
             if (slidesss[8]) {  // Verifica se o índice 8 existe
               slidesss[8].remove();
@@ -1352,7 +1352,7 @@
       var fileAtach = DriveApp.getFileById(slideId);
       Logger.log("var fileAtach:"+fileAtach);
 
-      /* +++ conversion a PDF +++ */
+      /* +++ conversão para PDF +++ */
       var blob = fileAtach.getBlob();
       var saveFolder = DriveApp.getFolderById(dbFolder);
       var pdfFile = saveFolder.createFile(blob);
@@ -1360,17 +1360,17 @@
       var urlPdf = pdfFile.getUrl();
       /* +++ fin conversion a PDF +++ */
 
-      /* acceso directo al archivo */
+      /* acesso direto do arquivo */
       var targetId = pdfFile.getId(); // Please set the ID of target file or folder.
       var shortcutName = proposalCodeName; // Please set the shortcut name.
       var folderId = DriveApp.getFolderById(buFolder);
       DriveApp.createShortcut(targetId).moveTo(folderId);
 
-      //pego la url de los archivos en la DB
+      //pego a URL dos arquivos na planilha DB
       sBd.getRange(rowBd,44,1,1).setValue(urlSlide);  
       sBd.getRange(rowBd,45,1,1).setValue(urlPdf);
 
-      //envio mail con el archivo creado
+      //envio o email com o arquivo que foi criado
       
       var alertEmail = "felipemancano@growgroup.us";
 
@@ -1424,7 +1424,7 @@
   }
 }
 
-/* +++ funciones para convertir la forma de mostrar el importe segun dolares o pesos */
+/* +++ converter dolares a pesos */
 function convertUsd(monto) {
   var long = monto.toString().length;
   monto.toString();
