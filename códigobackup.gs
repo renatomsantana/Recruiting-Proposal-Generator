@@ -54,7 +54,7 @@
     var rowBd = ssDb.getSheetByName('validation').getRange("N2").getValue();
     var sBd = ssDb.getSheetByName('Recruiting');
 
-    //copio los datos cargados desde el form
+    //copio os dados carregados pelo formulário
 
     /* 1. Basis Data */
     var time = sRespostas.getRange(fila,1,1,1).getValue();
@@ -157,13 +157,13 @@
     Logger.log("Completion: "+completionFee);
     Logger.log("Due Days: "+dueDays);
 
-    //comprobar si hay mas de un proyecto
+    //comprovar se há mais de um projeto
     var qtyJob = 1;
 
     if(sRespostas.getRange(fila,35,1,1).getValue() == "Yes")
     {
 
-    /* ++++ REPETIR ACA 3.B Y 4.B ++++ */
+    /* ++++ repetir aqui 3.B Y 4.B ++++ */
     qtyJob++;
     /* 3.b. Fee Data */
     var propTitleShowB = sRespostas.getRange(fila,36,1,1).getValue();
@@ -236,7 +236,7 @@
 
     if(sRespostas.getRange(fila,56,1,1).getValue() == "Yes")
     {
-      /* ++++ REPETIR ACA 3.C Y 4.C ++++ */
+      /* ++++ repetir aqui 3.C Y 4.C ++++ */
       qtyJob++;
       /* 3.c. Fee Data */
       var propTitleShowC = sRespostas.getRange(fila,57,1,1).getValue();
@@ -309,9 +309,9 @@
     }
     }
 
-    //obtengo año
+    //pego o ano
     var year = time.getFullYear();
-    //convierto fecha a nombre de mes
+    //converto o nome do mês
     var monthName;
     var month = time.getMonth();
     switch(month){
@@ -353,8 +353,8 @@
         break;
     }
 
-    //paso los datos a la hoja DB
-    //abro spreadsheet DB
+    //passo os dados pela hora no DB_Proposal
+    //abro spreadsheet DB_Proposal
 
     switch(comercialEmail){
       case 'grazielly.sena@growgroup.us':
@@ -392,7 +392,7 @@
 
     
 
-    //seteo variables segun B.O.
+    //coloco os dados seguindo o B.U.
     switch(bu){
     case "Mendoza - AR":
     buEmail = "alankarzovnik@growgroup.us";
@@ -497,12 +497,12 @@
     sBd.getRange(rowBd,58,1,1).setValue(referralFeeA);
     sBd.getRange(rowBd,61,1,1).setValue(positionSalaryA);
 
-    //obtengo uf de planilha Controle Comercial
+    //pego o uf na planilha Controle Comercial
     ufPcc = pCC.getLastRow();
     ufPcc ++;
     Logger.log(ufPcc);
 
-    //paso datos a Planilha de Controle Comercial
+    //passo os dados para a Planilha de Controle Comercial
     pCC.getRange(ufPcc,1,1,1).setValue(proposalCode);
     pCC.getRange(ufPcc,2,1,1).setValue(time);
     pCC.getRange(ufPcc,3,1,1).setValue(monthName);
@@ -531,7 +531,7 @@
     }
     
   
-    //si hay más de un proyecto copio los datos en fila siguiente
+    //se há mais de um projeto copio os dados para a fila seguinte
     if(qtyJob>1)
     {
     var auxFila = rowBd + 1;
@@ -583,7 +583,7 @@
     sBd.getRange(auxFila,59,1,1).setValue(referralFeeB);
     sBd.getRange(auxFila,62,1,1).setValue(positionSalaryB);
 
-    //paso datos a Planilha de Controle Comercial
+    //passo os dados a Planilha de Controle Comercial
     ufPcc ++;
     pCC.getRange(ufPcc,1,1,1).setValue(proposalCode);
     pCC.getRange(ufPcc,2,1,1).setValue(time);
@@ -655,7 +655,7 @@
       sBd.getRange(auxFila,60,1,1).setValue(referralFeeC);
       sBd.getRange(auxFila,63,1,1).setValue(positionSalaryC);
 
-      //paso datos a Planilha de Controle Comercial
+      //passo os dados para a Planilha de Controle Comercial
       ufPcc = ufPcc + 1;
       pCC.getRange(ufPcc,1,1,1).setValue(proposalCode);
       pCC.getRange(ufPcc,2,1,1).setValue(time);
@@ -678,7 +678,7 @@
     }
     }
 
-    //convierto a texto los flatFee para formatearlos segun idioma
+    //converto os textos Fee para a segunda linguagem
     if(lenguage == 'English') {
     flatFeeMonthText = convertUsd(flatFeeMonth);
     flatFeeMonthBText = convertUsd(flatFeeMonthB);
@@ -711,18 +711,18 @@
       //Abro slide modelo
       var slideModelo = DriveApp.getFileById('1SJ5mS9XWgQ9UaKG8gHDjqvl4zmcz_exqQuI82I6aqLQ');
 
-      //Duplico slide y lo nombre
+      //Duplico slide e o nome
       var proposalCodeName = 'Proposta Recrutamento e Seleção-  ' + proposalCode
       slideModelo.makeCopy(proposalCodeName,DriveApp.getFolderById(dbFolder));
 
-      //busco archivo creado
+      //busco arquivo que foi criado
       var files = DriveApp.getFilesByName(proposalCodeName);
 
       while (files.hasNext()) {
       var file = files.next();
       }
 
-      //obtengo la url del archivo creado
+      //busco o link do arquivo que foi criado
       var urlSlide = file.getUrl();
       //abro el archivo
       var slides = SlidesApp.openByUrl(urlSlide);
@@ -732,7 +732,7 @@
       //abro Slide
       var slidesss = slides.getSlides();
 
-      /* +++ forEach para el reemplazar datos segun formulario +++ */
+      /* +++ forEach para preencher os dados segundo o formulário +++ */
       slidesss.forEach(function(slide,index){
       var shapes = (slide.getShapes());
   
@@ -750,7 +750,7 @@
           })
         }
       })
-      /* +++ fin forEach para el reemplazar datos segun proyectos +++ */
+      /* +++ forEach para preencher os dados segundo os projetos +++ */
 
       slides.saveAndClose();
       slides = SlidesApp.openByUrl(urlSlide);
@@ -759,21 +759,21 @@
 
       var fileAtach = DriveApp.getFileById(slideId);
 
-      /* +++ conversion a PDF +++ */
+      /* +++ converto para PDF +++ */
       var blob = fileAtach.getBlob();
       var saveFolder = DriveApp.getFolderById(dbFolder);
       var pdfFile = saveFolder.createFile(blob);
       pdfFile.setName(proposalCodeName+".pdf");
       var urlPdf = pdfFile.getUrl();
-      /* +++ fin conversion a PDF +++ */
+      /* +++ Termino a conversão para PDF +++ */
 
-      /* acceso directo al archivo */
+      /* acesso diretamente o arquivo */
       var targetId = pdfFile.getId(); // Please set the ID of target file or folder.
       var shortcutName = proposalCodeName; // Please set the shortcut name.
       var folderId = DriveApp.getFolderById(buFolder);
       DriveApp.createShortcut(targetId).moveTo(folderId);
 
-      //pego la url de los archivos en la DB
+      //pego a URL dos arquivos no DB_Proposal
       sBd.getRange(rowBd,44,1,1).setValue(urlSlide);  
       sBd.getRange(rowBd,45,1,1).setValue(urlPdf);
 
@@ -787,7 +787,7 @@
     /* BALA DE PRATA */
     else{
 
-      //seteo columna para tomar texto segun lenguaje
+      //coloco a coluna para seguir a linguagem
       switch(lenguage){
       
       case "Português":
@@ -803,14 +803,14 @@
       break;
       }
 
-      //Abro archivo modelo
+      //Abro o arquivo modelo
       modelo = DriveApp.getFileById('1SJ5mS9XWgQ9UaKG8gHDjqvl4zmcz_exqQuI82I6aqLQ');
 
-      //Duplico slide y lo nombre
+      //Duplico slide e o nome
       var proposalCodeName = 'Proposta Recrutamento e Seleção - ' + proposalCode
       modelo.makeCopy(proposalCodeName,DriveApp.getFolderById(dbFolder));
 
-      //Copio y pego en la BD el codigo de propuesta si es mas de una vacante
+      //Copio e pego na DB o ProposalCode e se tem mais de uma deixo vago
       if(qtyJob>1)
       {
       var aux = rowBd + 1;
@@ -822,28 +822,28 @@
       }
       }
 
-      //busco archivo creado
+      //busco arquivo criado
       var files = DriveApp.getFilesByName(proposalCodeName);
 
       while (files.hasNext()) {
       var file = files.next();
       }
 
-      //obtengo la url del archivo creado
+      //Pego a URL do arquivo criado
       var urlSlide = file.getUrl();
-      //abro el archivo
+      //abro o arquivo criado
       var slides = SlidesApp.openByUrl(urlSlide);
 
       pCC.getRange(ufPcc,23,1,1).setValue(urlSlide);
 
-      //bucle para buscar y reemplazar los textos en la propuesta
+      //var para buscar e substituir os textos na proposta
       var slidesss = slides.getSlides();
       Logger.log("slidesss: "+slidesss);
       slidesss.forEach(function(slide){ 
          var shapes = (slide.getShapes());
          shapes.forEach(function(shape){
            if(shape.getShapeType() == 'TEXT_BOX'){
-             //completo el texto de la propuesta segun idioma
+             //completo o texto seguindo a linguagem escolhida
              //page1
              shape.getText().replaceAllText('{{proposal}}',bdTxt.getRange(3,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{proposalCode}}',bdTxt.getRange(4,colLang,1,1).getValue());
@@ -886,7 +886,7 @@
              shape.getText().replaceAllText('{{recognitionTitle}}',bdTxt.getRange(43,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{onuText}}',bdTxt.getRange(44,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{gptwText}}',bdTxt.getRange(45,colLang,1,1).getValue());
-             //page 4, 5 y 6
+             //page 4, 5 e 6
              shape.getText().replaceAllText('{{proposal}}',bdTxt.getRange(47,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{proposalTitle}}',bdTxt.getRange(48,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{proposalSubtitle}}',bdTxt.getRange(49,colLang,1,1).getValue());
@@ -997,7 +997,7 @@
              shape.getText().replaceAllText('{{cancellationDescription}}',bdTxt.getRange(62,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{recommendation}}',bdTxt.getRange(63,colLang,1,1).getValue());
 
-             //if segun exclusivityDays
+             //Se seguem exclusivityDays
              if(exclusivityDays.toString() == "0"){
                shape.getText().replaceAllText('{{recommendationDescription}}',bdTxt.getRange(106,colLang,1,1).getValue());
              }
@@ -1149,7 +1149,7 @@
              shape.getText().replaceAllText('{{address}}',bdTxt.getRange(87,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{contractorData}}',bdTxt.getRange(89,colLang,1,1).getValue());
 
-             //sigo completando el doc con los datos de la propuesta
+             //Completo a propost seguindo os dados da planilha
              //page1
              shape.getText().replaceAllText('{{proposalcode}}',proposalCode);
              shape.getText().replaceAllText('{{compFantasyName}}',compFantasyName);
@@ -1179,7 +1179,7 @@
           });
         })
 
-            // Elimino hoja que no corresponda firma Grow
+        
               if (country == 'Argentina' || country == 'Chile') {
               if (slidesss[9]) {  // Verifica se o índice 9 existe
                slidesss[9].remove();
@@ -1194,13 +1194,13 @@
         //vuelvo a abrir slide
         slidesss = slides.getSlides();
 
-        /* +++ forEach para el reemplazar datos segun proyectos +++ */
+        /* +++ forEach para substituir os dados segundo ao projeto +++ */
         slidesss.forEach(function(slide,index){
         var shapes = (slide.getShapes());
 
           if(index==3 || index==4) 
           {
-            //calculo axiliar
+            //calculo auxiliar
             feeDec = fee/100;
             calcResultA = calcResultA * feeDec;
             calcResultImpA = calcResultA / 0.8367;
@@ -1240,7 +1240,7 @@
 
           if((index==5 || index==6) && qtyJob>1)
           {
-            //calculo axiliar
+            //calculo auxiliar
             feeDec = feeB/100;
             calcResultB = calcResultB * feeDec;
             calcResultImpB = calcResultB / 0.8367;
@@ -1280,12 +1280,12 @@
 
           if((index==7 || index==8) && qtyJob>2)
           {
-            //calculo axiliar
+            //calculo auxiliar
             feeDec = feeC/100;
             calcResultC = calcResultC * feeDec;
             calcResultImpC = calcResultC / 0.8367;
             calcResultImpC = calcResultImpC.toFixed(2);
-            //fin calculo
+            //término do calculo
 
             shapes.forEach(function(shape){
               if(shape.getShapeType() == 'TEXT_BOX'){
@@ -1318,9 +1318,9 @@
             })
           }
         })
-        /* +++ fin forEach para el reemplazar datos segun proyectos +++ */
+        /* +++ Término do forEach para substituir os dados segundo o projeto +++ */
 
-       // Eliminar páginas del slide si no se usan
+       // Eliminar páginas do slide se não irá ser usado
               if (qtyJob < 3) {
             if (slidesss[8]) {  // Verifica se o índice 8 existe
               slidesss[8].remove();
@@ -1352,7 +1352,7 @@
       var fileAtach = DriveApp.getFileById(slideId);
       Logger.log("var fileAtach:"+fileAtach);
 
-      /* +++ conversion a PDF +++ */
+      /* +++ conversão para PDF +++ */
       var blob = fileAtach.getBlob();
       var saveFolder = DriveApp.getFolderById(dbFolder);
       var pdfFile = saveFolder.createFile(blob);
@@ -1360,17 +1360,17 @@
       var urlPdf = pdfFile.getUrl();
       /* +++ fin conversion a PDF +++ */
 
-      /* acceso directo al archivo */
+      /* acesso direto do arquivo */
       var targetId = pdfFile.getId(); // Please set the ID of target file or folder.
       var shortcutName = proposalCodeName; // Please set the shortcut name.
       var folderId = DriveApp.getFolderById(buFolder);
       DriveApp.createShortcut(targetId).moveTo(folderId);
 
-      //pego la url de los archivos en la DB
+      //pego a URL dos arquivos na planilha DB
       sBd.getRange(rowBd,44,1,1).setValue(urlSlide);  
       sBd.getRange(rowBd,45,1,1).setValue(urlPdf);
 
-      //envio mail con el archivo creado
+      //envio o email com o arquivo que foi criado
       
       var alertEmail = "felipemancano@growgroup.us";
 
@@ -1424,7 +1424,7 @@
   }
 }
 
-/* +++ funciones para convertir la forma de mostrar el importe segun dolares o pesos */
+/* +++ converter dolares a pesos */
 function convertUsd(monto) {
   var long = monto.toString().length;
   monto.toString();
