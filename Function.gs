@@ -54,7 +54,7 @@
     var rowBd = ssDb.getSheetByName('validation').getRange("N2").getValue();
     var sBd = ssDb.getSheetByName('Recruiting');
 
-    //copio los datos cargados desde el form
+    //copio os dados carregados pelo formulário
 
     /* 1. Basis Data */
     var time = sRespostas.getRange(fila,1,1,1).getValue();
@@ -157,13 +157,13 @@
     Logger.log("Completion: "+completionFee);
     Logger.log("Due Days: "+dueDays);
 
-    //comprobar si hay mas de un proyecto
+    //comprovar se há mais de um projeto
     var qtyJob = 1;
 
     if(sRespostas.getRange(fila,35,1,1).getValue() == "Yes")
     {
 
-    /* ++++ REPETIR ACA 3.B Y 4.B ++++ */
+    /* ++++ repetir aqui 3.B Y 4.B ++++ */
     qtyJob++;
     /* 3.b. Fee Data */
     var propTitleShowB = sRespostas.getRange(fila,36,1,1).getValue();
@@ -236,7 +236,7 @@
 
     if(sRespostas.getRange(fila,56,1,1).getValue() == "Yes")
     {
-      /* ++++ REPETIR ACA 3.C Y 4.C ++++ */
+      /* ++++ repetir aqui 3.C Y 4.C ++++ */
       qtyJob++;
       /* 3.c. Fee Data */
       var propTitleShowC = sRespostas.getRange(fila,57,1,1).getValue();
@@ -309,9 +309,9 @@
     }
     }
 
-    //obtengo año
+    //pego ano
     var year = time.getFullYear();
-    //convierto fecha a nombre de mes
+    //converto o nome do mês
     var monthName;
     var month = time.getMonth();
     switch(month){
@@ -353,8 +353,8 @@
         break;
     }
 
-    //paso los datos a la hoja DB
-    //abro spreadsheet DB
+    //passo os dados pela hora no DB_Proposal
+    //abro spreadsheet DB_Proposal
 
     switch(comercialEmail){
       case 'grazielly.sena@growgroup.us':
@@ -392,7 +392,7 @@
 
     
 
-    //seteo variables segun B.O.
+    //coloco os dados seguindo o B.U.
     switch(bu){
     case "Mendoza - AR":
     buEmail = "alankarzovnik@growgroup.us";
