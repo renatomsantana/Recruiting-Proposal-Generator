@@ -750,7 +750,7 @@
           })
         }
       })
-      /* +++ fin forEach para el reemplazar datos segun proyectos +++ */
+      /* +++ forEach para preencher os dados segundo os projetos +++ */
 
       slides.saveAndClose();
       slides = SlidesApp.openByUrl(urlSlide);
@@ -759,21 +759,21 @@
 
       var fileAtach = DriveApp.getFileById(slideId);
 
-      /* +++ conversion a PDF +++ */
+      /* +++ converto para PDF +++ */
       var blob = fileAtach.getBlob();
       var saveFolder = DriveApp.getFolderById(dbFolder);
       var pdfFile = saveFolder.createFile(blob);
       pdfFile.setName(proposalCodeName+".pdf");
       var urlPdf = pdfFile.getUrl();
-      /* +++ fin conversion a PDF +++ */
+      /* +++ Termino a conversão para PDF +++ */
 
-      /* acceso directo al archivo */
+      /* acesso diretamente o arquivo */
       var targetId = pdfFile.getId(); // Please set the ID of target file or folder.
       var shortcutName = proposalCodeName; // Please set the shortcut name.
       var folderId = DriveApp.getFolderById(buFolder);
       DriveApp.createShortcut(targetId).moveTo(folderId);
 
-      //pego la url de los archivos en la DB
+      //pego a URL dos arquivos no DB_Proposal
       sBd.getRange(rowBd,44,1,1).setValue(urlSlide);  
       sBd.getRange(rowBd,45,1,1).setValue(urlPdf);
 
@@ -787,7 +787,7 @@
     /* BALA DE PRATA */
     else{
 
-      //seteo columna para tomar texto segun lenguaje
+      //coloco a coluna para seguir a linguagem
       switch(lenguage){
       
       case "Português":
