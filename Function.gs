@@ -497,12 +497,12 @@
     sBd.getRange(rowBd,58,1,1).setValue(referralFeeA);
     sBd.getRange(rowBd,61,1,1).setValue(positionSalaryA);
 
-    //pego o uf de planilha Controle Comercial
+    //pego o uf na planilha Controle Comercial
     ufPcc = pCC.getLastRow();
     ufPcc ++;
     Logger.log(ufPcc);
 
-    //paso datos a Planilha de Controle Comercial
+    //passo os dados para a Planilha de Controle Comercial
     pCC.getRange(ufPcc,1,1,1).setValue(proposalCode);
     pCC.getRange(ufPcc,2,1,1).setValue(time);
     pCC.getRange(ufPcc,3,1,1).setValue(monthName);
@@ -531,7 +531,7 @@
     }
     
   
-    //si hay más de un proyecto copio los datos en fila siguiente
+    //se há mais de um projeto copio os dados para a fila seguinte
     if(qtyJob>1)
     {
     var auxFila = rowBd + 1;
@@ -655,7 +655,7 @@
       sBd.getRange(auxFila,60,1,1).setValue(referralFeeC);
       sBd.getRange(auxFila,63,1,1).setValue(positionSalaryC);
 
-      //paso datos a Planilha de Controle Comercial
+      //passo os dados para a Planilha de Controle Comercial
       ufPcc = ufPcc + 1;
       pCC.getRange(ufPcc,1,1,1).setValue(proposalCode);
       pCC.getRange(ufPcc,2,1,1).setValue(time);
@@ -711,18 +711,18 @@
       //Abro slide modelo
       var slideModelo = DriveApp.getFileById('1SJ5mS9XWgQ9UaKG8gHDjqvl4zmcz_exqQuI82I6aqLQ');
 
-      //Duplico slide y lo nombre
+      //Duplico slide e o nome
       var proposalCodeName = 'Proposta Recrutamento e Seleção-  ' + proposalCode
       slideModelo.makeCopy(proposalCodeName,DriveApp.getFolderById(dbFolder));
 
-      //busco archivo creado
+      //busco arquivo que foi criado
       var files = DriveApp.getFilesByName(proposalCodeName);
 
       while (files.hasNext()) {
       var file = files.next();
       }
 
-      //obtengo la url del archivo creado
+      //busco o link do arquivo que foi criado
       var urlSlide = file.getUrl();
       //abro el archivo
       var slides = SlidesApp.openByUrl(urlSlide);
@@ -732,7 +732,7 @@
       //abro Slide
       var slidesss = slides.getSlides();
 
-      /* +++ forEach para el reemplazar datos segun formulario +++ */
+      /* +++ forEach para preencher os dados segundo o formulário +++ */
       slidesss.forEach(function(slide,index){
       var shapes = (slide.getShapes());
   
