@@ -803,14 +803,14 @@
       break;
       }
 
-      //Abro archivo modelo
+      //Abro o arquivo modelo
       modelo = DriveApp.getFileById('1SJ5mS9XWgQ9UaKG8gHDjqvl4zmcz_exqQuI82I6aqLQ');
 
-      //Duplico slide y lo nombre
+      //Duplico slide e o nome
       var proposalCodeName = 'Proposta Recrutamento e Seleção - ' + proposalCode
       modelo.makeCopy(proposalCodeName,DriveApp.getFolderById(dbFolder));
 
-      //Copio y pego en la BD el codigo de propuesta si es mas de una vacante
+      //Copio e pego na DB o ProposalCode e se tem mais de uma deixo vago
       if(qtyJob>1)
       {
       var aux = rowBd + 1;
@@ -822,28 +822,28 @@
       }
       }
 
-      //busco archivo creado
+      //busco arquivo criado
       var files = DriveApp.getFilesByName(proposalCodeName);
 
       while (files.hasNext()) {
       var file = files.next();
       }
 
-      //obtengo la url del archivo creado
+      //Pego a URL do arquivo criado
       var urlSlide = file.getUrl();
-      //abro el archivo
+      //abro o arquivo criado
       var slides = SlidesApp.openByUrl(urlSlide);
 
       pCC.getRange(ufPcc,23,1,1).setValue(urlSlide);
 
-      //bucle para buscar y reemplazar los textos en la propuesta
+      //var para buscar e substituir os textos na proposta
       var slidesss = slides.getSlides();
       Logger.log("slidesss: "+slidesss);
       slidesss.forEach(function(slide){ 
          var shapes = (slide.getShapes());
          shapes.forEach(function(shape){
            if(shape.getShapeType() == 'TEXT_BOX'){
-             //completo el texto de la propuesta segun idioma
+             //completo o texto seguindo a linguagem escolhida
              //page1
              shape.getText().replaceAllText('{{proposal}}',bdTxt.getRange(3,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{proposalCode}}',bdTxt.getRange(4,colLang,1,1).getValue());
@@ -886,7 +886,7 @@
              shape.getText().replaceAllText('{{recognitionTitle}}',bdTxt.getRange(43,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{onuText}}',bdTxt.getRange(44,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{gptwText}}',bdTxt.getRange(45,colLang,1,1).getValue());
-             //page 4, 5 y 6
+             //page 4, 5 e 6
              shape.getText().replaceAllText('{{proposal}}',bdTxt.getRange(47,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{proposalTitle}}',bdTxt.getRange(48,colLang,1,1).getValue());
              shape.getText().replaceAllText('{{proposalSubtitle}}',bdTxt.getRange(49,colLang,1,1).getValue());
