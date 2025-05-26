@@ -309,7 +309,7 @@
     }
     }
 
-    //pego ano
+    //pego o ano
     var year = time.getFullYear();
     //converto o nome do mês
     var monthName;
@@ -497,7 +497,7 @@
     sBd.getRange(rowBd,58,1,1).setValue(referralFeeA);
     sBd.getRange(rowBd,61,1,1).setValue(positionSalaryA);
 
-    //obtengo uf de planilha Controle Comercial
+    //pego o uf de planilha Controle Comercial
     ufPcc = pCC.getLastRow();
     ufPcc ++;
     Logger.log(ufPcc);
@@ -583,7 +583,7 @@
     sBd.getRange(auxFila,59,1,1).setValue(referralFeeB);
     sBd.getRange(auxFila,62,1,1).setValue(positionSalaryB);
 
-    //paso datos a Planilha de Controle Comercial
+    //passo os dados a Planilha de Controle Comercial
     ufPcc ++;
     pCC.getRange(ufPcc,1,1,1).setValue(proposalCode);
     pCC.getRange(ufPcc,2,1,1).setValue(time);
@@ -678,7 +678,7 @@
     }
     }
 
-    //convierto a texto los flatFee para formatearlos segun idioma
+    //converto os textos Fee para a segunda linguagem
     if(lenguage == 'English') {
     flatFeeMonthText = convertUsd(flatFeeMonth);
     flatFeeMonthBText = convertUsd(flatFeeMonthB);
